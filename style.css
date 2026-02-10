@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  height: 100dvh;
+  background: #f29422;
+  background: linear-gradient(
+    163deg,
+    rgba(242, 148, 34, 1) 33%,
+    rgba(242, 86, 29, 1) 100%,
+    rgba(242, 121, 29, 1) 75%
+  );
+  color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  background-color: #260404;
+  padding: clamp(1rem, 10px, 2rem);
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.342);
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  display: flex;
+  gap: 1rem;
+}
+.timer {
+  font-size: clamp(2rem, 60px, 7rem);
+  padding: 20px 0px;
+}
+.btnSection {
+  display: flex;
+  gap: 1rem;
+}
+.btnInteracao {
+  width: 80px;
+  height: 40px;
+  color: #f2f2f200;
+  border: none;
+  border-radius: 20px;
+  background-color: #f29422;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.btnInteracao:hover {
+  background-color: #8b4c10;
+}
+.start {
+  background-image: url("assets/play.png");
+}
+.stop {
+  background-image: url("assets/pausa.png");
+}
+.reset {
+  background-image: url("assets/reset.png");
+}
