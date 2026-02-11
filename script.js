@@ -1,5 +1,5 @@
 let domTimer = document.querySelector(".timer");
-let count;
+let count, tempo;;
 
 
 let getSeconds = (seconds) => {
@@ -18,12 +18,15 @@ let setMinuts = (min) => {
   return minuts;
 };
 
-let startCount = () => {
-  clearInterval(count);
+
+let startCount = () => { 
+  
+  console.log("aqui")
   count = setInterval(() => {
     tempo--;
     domTimer.innerHTML = getSeconds(tempo);
   }, 1000);
+  clearInterval(count);
 };
 
 document.addEventListener("click", (e) => {
@@ -40,7 +43,7 @@ document.addEventListener("click", (e) => {
   if (el === "reset") {
     clearInterval(count);
     domTimer.classList.remove("stoped");
-    let tempo = setMinuts(25);
+    tempo = setMinuts(25);
     domTimer.innerHTML = "25:00";
   }
 });
