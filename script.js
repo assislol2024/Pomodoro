@@ -1,8 +1,8 @@
 let domTimer = document.querySelector(".timer");
+let count;
 
-let tempo = 0;
 
-let setSeconds = (seconds) => {
+let getSeconds = (seconds) => {
   let second = new Date(seconds * 1000);
   second = second.toLocaleTimeString("pt-br", {
     timeZone: "UTC",
@@ -12,28 +12,35 @@ let setSeconds = (seconds) => {
   return second;
 };
 
+
 let setMinuts = (min) => {
   let minuts = 60 * min;
   return minuts;
 };
+
+let startCount = () => {
+  clearInterval(count);
+  count = setInterval(() => {
+    tempo--;
+    domTimer.innerHTML = getSeconds(tempo);
+  }, 1000);
+};
+
 document.addEventListener("click", (e) => {
   let el = e.target.id;
-  tempo = setMinuts(25);
 
   if (el === "start") {
-    console.log(el);
-    domTimer = setInterval(() => {
-      tempo--;
-      domTimer.innerHTML = setSeconds(tempo);
-    }, 1000);
+    startCount();
+    domTimer.classList.remove("stoped");
   }
   if (el === "stop") {
-    clearInterval(domTimer);
+    clearInterval(count);
     domTimer.classList.add("stoped");
   }
   if (el === "reset") {
-    clearInterval(domTimer);
-    tempo = 0;
-    domTimer.innerHTML = "00:00";
+    clearInterval(count);
+    domTimer.classList.remove("stoped");
+    let tempo = setMinuts(25);
+    domTimer.innerHTML = "25:00";
   }
 });
