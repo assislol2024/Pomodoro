@@ -1,6 +1,5 @@
-let domTimer = document.querySelector(".timer");
-let count, tempo;;
-
+const domTimer = document.querySelector(".timer");
+let count = 0;
 
 let getSeconds = (seconds) => {
   let second = new Date(seconds * 1000);
@@ -12,28 +11,21 @@ let getSeconds = (seconds) => {
   return second;
 };
 
-
 let setMinuts = (min) => {
   let minuts = 60 * min;
   return minuts;
 };
 
 
-let startCount = () => { 
-  
-  console.log("aqui")
-  count = setInterval(() => {
-    tempo--;
-    domTimer.innerHTML = getSeconds(tempo);
-  }, 1000);
-  clearInterval(count);
-};
-
 document.addEventListener("click", (e) => {
   let el = e.target.id;
+  let tempo = setMinuts(25);
 
   if (el === "start") {
-    startCount();
+    count = setInterval(() => {
+      tempo--;
+      domTimer.innerHTML = getSeconds(tempo);
+    }, 1000);
     domTimer.classList.remove("stoped");
   }
   if (el === "stop") {
