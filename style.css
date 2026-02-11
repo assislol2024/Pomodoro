@@ -64,3 +64,6 @@ main {
 .reset {
   background-image: url("assets/reset.png");
 }
+.stoped{
+  color: red;
+}
