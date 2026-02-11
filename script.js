@@ -1,4 +1,4 @@
-const domTimer = document.querySelector(".timer");
+let domTimer = document.querySelector(".timer");
 
 let tempo = 0;
 
@@ -19,21 +19,21 @@ let setMinuts = (min) => {
 document.addEventListener("click", (e) => {
   let el = e.target.id;
   tempo = setMinuts(25);
-  console.log(el);
 
   if (el === "start") {
-    if (domTimer) {
-      domTimer = setInterval(() => {
-        tempo--;
-        domTimer.innerHTML = setSeconds(tempo);
-      }, 1000);
-    }
-  } else if (el === "stop") {
+    console.log(el);
+    domTimer = setInterval(() => {
+      tempo--;
+      domTimer.innerHTML = setSeconds(tempo);
+    }, 1000);
+  }
+  if (el === "stop") {
     clearInterval(domTimer);
     domTimer.classList.add("stoped");
-  } else if (el === "reset") {
+  }
+  if (el === "reset") {
+    clearInterval(domTimer);
     tempo = 0;
     domTimer.innerHTML = "00:00";
-    clearInterval(domTimer);
   }
 });
