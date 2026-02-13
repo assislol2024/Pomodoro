@@ -25,6 +25,11 @@ document.addEventListener("click", (e) => {
     count = setInterval(() => {
       tempo--;
       domTimer.innerHTML = getSeconds(tempo);
+      if (tempo === 0) {
+        domTimer.classList.add("stoped");
+        alert("Acabou o tempo!!!")
+        clearInterval(count);
+      }
     }, 1000);
     domTimer.classList.remove("stoped");
   }
