@@ -1,4 +1,4 @@
-const domTimer = document.querySelector(".timer");
+const display = document.querySelector(".timer");
 
 let timerId = 0;
 let state = "stopped";
@@ -33,21 +33,21 @@ document.addEventListener("click", (e) => {
         timerId = setInterval(() => {
           tempo--;
           if (tempo === 0) {
-            domTimer.classList.add("stoped");
+            display.classList.add("stoped");
             alert("Acabou o tempo!!!");
             clearInterval(timerId);
           }
-          domTimer.textContent = getSeconds(tempo);
+          display.textContent = getSeconds(tempo);
         }, 1000);
 
-        domTimer.classList.remove("stoped");
+        display.classList.remove("stoped");
         setState("running");
       }
       break;
     case "stop":
       if (state === "running") {
         clearInterval(timerId);
-        domTimer.classList.add("stoped");
+        display.classList.add("stoped");
         setState("stopped");
       }
       console.log(state);
@@ -55,9 +55,9 @@ document.addEventListener("click", (e) => {
     case "reset":
       if (state === "running" || state === "stopped") {
         clearInterval(timerId);
-        domTimer.classList.remove("stoped");
+        display.classList.remove("stoped");
         tempo = setMinuts(25);
-        domTimer.innerHTML = "25:00";
+        display.innerHTML = "25:00";
         setState("stopped");
       }
       console.log(state);
